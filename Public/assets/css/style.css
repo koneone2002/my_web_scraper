@@ -1,0 +1,73 @@
+
+     
+      #wrapper {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 5%;
+        
+      }
+      #articles {
+        display: inline-block;
+        overflow: auto;
+        width: 100%;
+        height: 100px;
+        background-color: lightgrey;
+      }
+      #notes {
+        float: right;
+        width: 30%;
+      }
+      textarea, input {
+        display: block;
+        width: 100%;
+        background-color: #FCF5C7;
+      }
+      input {
+        height: 36px;
+        font-size: 24px;
+      }
+      textarea {
+        height: 200px;
+        font-size: 18px;
+      }
+
+      .jumbotron {
+
+        background-image: url(https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2018/08/thefourth_104gr_20.r-embed_2018.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 500px;
+        position: relative;
+    
+        
+    }
+    .jumbo-text {
+        font-size: 60px;
+        text-shadow: 3px;
+        background-color: white;
+        border: 1px solid black;
+        box-shadow:  3px;
+        color: Black;
+        font-family: 'Bitter', serif;
+        
+       
+    
+    }
+    .lead {
+        font-size: 20px;
+        text-shadow: 3px;
+        background-color: white;
+        border: 1px solid black;
+        box-shadow:  3px;
+        color: Black;
+        font-family: 'Bitter', serif;
+        
+       
+    
+    }
+   #cardio {
+     width: 80%;
+     height: 200px;
+     background-color: lightgrey;
+   }

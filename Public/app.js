@@ -1,10 +1,31 @@
 // Grab the articles as a json
-$.getJSON("/articles", function(data) {
-  // For each one
-  for (var i = 0; i < data.length; i++) {
-    // Display the apropos information on the page
-    $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
-  }
+
+
+$("#scraper").on("click", function() {
+  
+  $("#articles").empty();
+  // $.get("api/scrape").then(function(data) {
+    $.getJSON("/articles", function(data) {
+      // For each one
+      for (var i = 0; i < data.length; i++) {
+        // Display the apropos information on the page
+         $("#articles").append("<div class='card-body'><a target='_blank' href=https://www.nytimes.com" + data[i].link + "  data-id='" + data[i]._id + "'>" + data[i].title + "<br></a></div>");
+        //$("#links").append("<p data-id='" + data[i]._id + "'>" + data[i].link + "</p>");
+
+        // $("#articles").append("<div>");
+        // var art = $("<h2>" + data[i].title);
+        // art.attr("class", "card-body");
+        // div.append(art);
+        // $("#links").append("<div>");
+        // var links = $("<a target='_blank' href=https://www.nytimes.com" + data[i].link + "</a>");
+      }
+    });
+    
+
+})
+
+$("#clearer").on("click", function() {
+  $("#articles").empty();
 });
 
 
@@ -31,6 +52,7 @@ $(document).on("click", "p", function() {
       $("#notes").append("<textarea id='bodyinput' name='body'></textarea>");
       // A button to submit a new note, with the id of the article saved to it
       $("#notes").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
+      $("#notes").append("<button data-id='" + data._id + "' id='deletenote'>Delete Note</button>");
 
       // If there's a note in the article
       if (data.note) {
@@ -65,6 +87,34 @@ $(document).on("click", "#savenote", function() {
       // Empty the notes section
       $("#notes").empty();
     });
+
+//     // When you click the deletenote button
+$(document).on("click", "#deletenote", function() {
+//   // Grab the id associated with the article from the submit button
+ var thisId = $(this).attr("data-id");
+//  $("#bodyinput").empty();
+//  $("#titleinput").empty();
+
+//   // Run a POST request to change the note, using what's entered in the inputs
+  $.ajax({
+    method: "DELETE",
+    url: "note/" + thisId,
+    
+  })
+  .then(function(data) {
+    console.log("Note " + thisId + "deleted");
+    location.reload();
+  });
+    
+  });
+//     // With that done
+//     .then(function(data) {
+//       // Log the response
+//       console.log(data);
+//       // Empty the notes section
+//       $("#notes").empty();
+
+
 
   // Also, remove the values entered in the input and textarea for note entry
   $("#titleinput").val("");
