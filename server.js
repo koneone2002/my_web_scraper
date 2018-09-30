@@ -131,7 +131,7 @@ app.post("/articles/:id", function(req, res) {
       });
   });
 
-  app.delete("/notes/:id", function(req, res) {
+  app.delete("/note/:id", function(req, res) {
       db.Note.deleteOne({_id: req.params.id})
       .then(function (dbNote) {
           res.json(dbNote);

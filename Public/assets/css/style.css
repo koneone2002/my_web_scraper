@@ -4,14 +4,15 @@
         width: 80%;
         margin-left: auto;
         margin-right: auto;
-        padding-top: 5%;
+        padding-top: 40px;
         
       }
       #articles {
         display: inline-block;
+        padding: 20px;
         overflow: auto;
-        width: 100%;
-        height: 100px;
+        width: 60%;
+        height: 600px;
         background-color: lightgrey;
       }
       #notes {
@@ -19,9 +20,10 @@
         width: 30%;
       }
       textarea, input {
+        padding: 10px;
         display: block;
         width: 100%;
-        background-color: #FCF5C7;
+        background-color: lightgrey;
       }
       input {
         height: 36px;
@@ -30,6 +32,22 @@
       textarea {
         height: 200px;
         font-size: 18px;
+      }
+      h2 {
+        font-size: 20px;
+        
+
+      }
+
+      #savenote {
+        box-shadow: 2px 2px 2px grey;
+       
+
+      }
+      #deletenote {
+        box-shadow: 2px 2px 2px grey;
+        
+        float: right;
       }
 
       .jumbotron {
@@ -66,8 +84,4 @@
        
     
     }
-   #cardio {
-     width: 80%;
-     height: 200px;
-     background-color: lightgrey;
-   }
+  

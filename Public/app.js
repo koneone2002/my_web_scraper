@@ -1,23 +1,23 @@
 // Grab the articles as a json
 
-
+$("#articles").hide();
 $("#scraper").on("click", function() {
   
-  $("#articles").empty();
+  $("#articles").show();
   // $.get("api/scrape").then(function(data) {
     $.getJSON("/articles", function(data) {
       // For each one
       for (var i = 0; i < data.length; i++) {
-        // Display the apropos information on the page
-         $("#articles").append("<div class='card-body'><a target='_blank' href=https://www.nytimes.com" + data[i].link + "  data-id='" + data[i]._id + "'>" + data[i].title + "<br></a></div>");
-        //$("#links").append("<p data-id='" + data[i]._id + "'>" + data[i].link + "</p>");
+        var title = data[i].title;
+        var link = "https://www.nytimes.com" + data[i].link;
+        var id = data[i]._id;
 
-        // $("#articles").append("<div>");
-        // var art = $("<h2>" + data[i].title);
-        // art.attr("class", "card-body");
-        // div.append(art);
-        // $("#links").append("<div>");
-        // var links = $("<a target='_blank' href=https://www.nytimes.com" + data[i].link + "</a>");
+       
+        $("#articles").append("<div>")
+        $("#articles").append("<h2 data-id='" + id + "'>" + title + "</h2> "); 
+        $("#articles").append($("<a target='_blank' href=" + link + ">" + link + "</a>"));
+        $("#articles").append("<hr>");
+        
       }
     });
     
@@ -30,7 +30,7 @@ $("#clearer").on("click", function() {
 
 
 // Whenever someone clicks a p tag
-$(document).on("click", "p", function() {
+$(document).on("click", "h2", function() {
   // Empty the notes from the note section
   $("#notes").empty();
   // Save the id from the p tag
@@ -52,8 +52,9 @@ $(document).on("click", "p", function() {
       $("#notes").append("<textarea id='bodyinput' name='body'></textarea>");
       // A button to submit a new note, with the id of the article saved to it
       $("#notes").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
+      $("#savenote").attr("class", "btn-primary");
       $("#notes").append("<button data-id='" + data._id + "' id='deletenote'>Delete Note</button>");
-
+      $("#deletenote").attr("class", "btn-danger");
       // If there's a note in the article
       if (data.note) {
         // Place the title of the note in the title input
@@ -87,32 +88,28 @@ $(document).on("click", "#savenote", function() {
       // Empty the notes section
       $("#notes").empty();
     });
+   
 
 //     // When you click the deletenote button
 $(document).on("click", "#deletenote", function() {
 //   // Grab the id associated with the article from the submit button
  var thisId = $(this).attr("data-id");
-//  $("#bodyinput").empty();
-//  $("#titleinput").empty();
+ 
 
-//   // Run a POST request to change the note, using what's entered in the inputs
+ 
   $.ajax({
-    method: "DELETE",
-    url: "note/" + thisId,
-    
+    url: "/notes/" + thisId,
+    method: "DELETE"
+
   })
   .then(function(data) {
+    $("#notes").empty();
     console.log("Note " + thisId + "deleted");
     location.reload();
   });
-    
+  
   });
-//     // With that done
-//     .then(function(data) {
-//       // Log the response
-//       console.log(data);
-//       // Empty the notes section
-//       $("#notes").empty();
+
 
 
 
