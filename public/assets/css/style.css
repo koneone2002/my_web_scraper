@@ -1,0 +1,87 @@
+
+     
+      #wrapper {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 40px;
+        
+      }
+      #articles {
+        display: inline-block;
+        padding: 20px;
+        overflow: auto;
+        width: 60%;
+        height: 600px;
+        background-color: lightgrey;
+      }
+      #notes {
+        float: right;
+        width: 30%;
+      }
+      textarea, input {
+        padding: 10px;
+        display: block;
+        width: 100%;
+        background-color: lightgrey;
+      }
+      input {
+        height: 36px;
+        font-size: 24px;
+      }
+      textarea {
+        height: 200px;
+        font-size: 18px;
+      }
+      h2 {
+        font-size: 20px;
+        
+
+      }
+
+      #savenote {
+        box-shadow: 2px 2px 2px grey;
+       
+
+      }
+      #deletenote {
+        box-shadow: 2px 2px 2px grey;
+        
+        float: right;
+      }
+
+      .jumbotron {
+
+        background-image: url(https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2018/08/thefourth_104gr_20.r-embed_2018.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 500px;
+        position: relative;
+    
+        
+    }
+    .jumbo-text {
+        font-size: 60px;
+        text-shadow: 3px;
+        background-color: white;
+        border: 1px solid black;
+        box-shadow:  3px;
+        color: Black;
+        font-family: 'Bitter', serif;
+        
+       
+    
+    }
+    .lead {
+        font-size: 20px;
+        text-shadow: 3px;
+        background-color: white;
+        border: 1px solid black;
+        box-shadow:  3px;
+        color: Black;
+        font-family: 'Bitter', serif;
+        
+       
+    
+    }
+  
