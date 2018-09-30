@@ -2,7 +2,7 @@
 
 $("#articles").hide();
 $("#scraper").on("click", function() {
-  
+ 
   $("#articles").show();
   // $.get("api/scrape").then(function(data) {
     $.getJSON("/articles", function(data) {
