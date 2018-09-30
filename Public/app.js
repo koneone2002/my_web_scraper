@@ -90,25 +90,25 @@ $(document).on("click", "#savenote", function() {
     });
    
 
-//     // When you click the deletenote button
-$(document).on("click", "#deletenote", function() {
-//   // Grab the id associated with the article from the submit button
- var thisId = $(this).attr("data-id");
+// //     // When you click the deletenote button
+// $(document).on("click", "#deletenote", function() {
+// //   // Grab the id associated with the article from the submit button
+//  var thisId = $(this).attr("data-id");
  
 
  
-  $.ajax({
-    url: "/note/" + thisId,
-    method: "DELETE"
+//   $.ajax({
+//     url: "/note/" + thisId,
+//     method: "DELETE"
 
-  })
-  .then(function(data) {
-    $("#notes").empty();
-    console.log("Note " + thisId + "deleted");
-    location.reload();
-  });
+//   })
+//   .then(function(data) {
+//     $("#notes").empty();
+//     console.log("Note " + thisId + "deleted");
+//     location.reload();
+//   });
   
-  });
+//   });
 
 
 
