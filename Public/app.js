@@ -98,7 +98,7 @@ $(document).on("click", "#deletenote", function() {
 
  
   $.ajax({
-    url: "/notes/" + thisId,
+    url: "/note/" + thisId,
     method: "DELETE"
 
   })
