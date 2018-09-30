@@ -4,8 +4,11 @@ $("#articles").hide();
 $("#scraper").on("click", function() {
  
   $("#articles").show();
-  // $.get("api/scrape").then(function(data) {
-    $.getJSON("/articles", function(data) {
+  $.get("/scrape", function(data) {
+
+  // }).then(function(data) {
+    //$.getJSON("/articles", function(data) {
+      console.log(data);
       // For each one
       for (var i = 0; i < data.length; i++) {
         var title = data[i].title;

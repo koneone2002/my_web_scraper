@@ -73,7 +73,7 @@ app.get("/scrape", function(req, res) {
          articles.push(result); 
 
     // Log the results once you've looped through each of the elements found with cheerio
-    console.log(results);
+    console.log(result);
       // Create a new Article using the `result` object built from scraping
       
     });
