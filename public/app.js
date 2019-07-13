@@ -1,9 +1,9 @@
 // Grab the articles as a json
 
-$("#articles").hide();
+//$("#articles").hide();
 $("#scraper").on("click", function() {
  
-  $("#articles").show();
+  //$("#articles").show();
   $.get("/scrape", function(data) {
 
   // }).then(function(data) {
@@ -14,12 +14,31 @@ $("#scraper").on("click", function() {
         var title = data[i].title;
         var link = "https://www.nytimes.com" + data[i].link;
         var id = data[i]._id;
+       
+        var div = $("<div>");
+        div.attr("class", "basic-card");
+        div.attr("style", "width:600px");
+
+        var h2 = $("<h2>");
+        h2.attr("data-id", id);
+        h2.append(title);
+        
+        div.append(h2);
+
+        var sourceUrl = $("<a>");
+        sourceUrl.attr("href", link);
+        sourceUrl.attr("target", "_blank");
+        sourceUrl.append(link);
+        div.append(sourceUrl);
+
 
        
-        $("#articles").append("<div>")
-        $("#articles").append("<h2 data-id='" + id + "'>" + title + "</h2> "); 
-        $("#articles").append($("<a target='_blank' href=" + link + ">" + link + "</a>"));
-        $("#articles").append("<hr>");
+        $("#articles").append(div);
+
+
+        // $("#articles").append("<h2 data-id='" + id + "'>" + title + "</h2> "); 
+        // $("#articles").append($("<a target='_blank' href=" + link + ">" + link + "</a>"));
+        // $("#articles").append("<hr>");
         
       }
     });
@@ -27,9 +46,9 @@ $("#scraper").on("click", function() {
 
 })
 
-$("#clearer").on("click", function() {
-  $("#articles").empty();
-});
+// $("#clearer").on("click", function() {
+//   $("#articles").empty();
+// });
 
 
 // Whenever someone clicks a p tag
@@ -108,7 +127,7 @@ $(document).on("click", "#deletenote", function() {
   .then(function(data) {
     $("#notes").empty();
     console.log("Note " + thisId + "deleted");
-    location.reload();
+    //location.reload();
   });
   
   });
